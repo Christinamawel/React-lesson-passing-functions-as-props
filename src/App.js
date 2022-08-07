@@ -34,11 +34,13 @@ function App() {
   }
 
   const style = {
-    "textAlign": "center"
+    "textAlign": "center",
+    "height" : "100vh",
+    "display": "flow-root"
   }
 
   return (
-    <div style={{...style}}>
+    <div style={{...style, ...randomColor()}}>
       <h1>Color Changer</h1>
       <ColorChangeBox colorChanger={randomColor} currentBackground={randomColor()}/>
     </div>
