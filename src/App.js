@@ -1,23 +1,46 @@
-import logo from './logo.svg';
-import './App.css';
+import ColorChangeBox from './ColorChangeBox';
 
 function App() {
+
+  function randomColor() {
+    const num = Math.floor(Math.random() * 7);
+    let color = "black"
+    switch(num){
+      case 0:
+        color = "LightSalmon";
+      break;
+      case 1:
+        color = "LemonChiffon";
+      break;
+      case 2:
+        color = "AliceBlue";
+      break;
+      case 3:
+        color = "Lavender";
+      break;
+      case 4:
+        color = "LightCoral";
+      break;
+      case 5:
+        color = "Turquoise";
+      break;
+      case 6:
+        color = "LightPink";
+      break;
+    }
+    return {
+      'backgroundColor': color
+    }
+  }
+
+  const style = {
+    "textAlign": "center"
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div style={{...style}}>
+      <h1>Color Changer</h1>
+      <ColorChangeBox colorChanger={randomColor} currentBackground={randomColor()}/>
     </div>
   );
 }
